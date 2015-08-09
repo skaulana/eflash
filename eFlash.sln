@@ -1,0 +1,30 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 9.00
+# Visual Studio 2005
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "eFlash", "eFlash\eFlash.csproj", "{94EF0E5C-3272-4649-B20B-2ADA443932CE}"
+EndProject
+Project("{54435603-DBB4-11D2-8724-00A0C9A8B90C}") = "eFlash_Setup", "eFlash_Setup\eFlash_Setup.vdproj", "{49B5DB1E-FC26-4FD7-89F0-56472DF9DC0F}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "eFlash_Utilities", "eFlash_Utilities\eFlash_Utilities.csproj", "{DB246D37-1F6D-4190-B710-4BA60E61FE8E}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{94EF0E5C-3272-4649-B20B-2ADA443932CE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{94EF0E5C-3272-4649-B20B-2ADA443932CE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{94EF0E5C-3272-4649-B20B-2ADA443932CE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{94EF0E5C-3272-4649-B20B-2ADA443932CE}.Release|Any CPU.Build.0 = Release|Any CPU
+		{49B5DB1E-FC26-4FD7-89F0-56472DF9DC0F}.Debug|Any CPU.ActiveCfg = Debug
+		{49B5DB1E-FC26-4FD7-89F0-56472DF9DC0F}.Release|Any CPU.ActiveCfg = Release
+		{DB246D37-1F6D-4190-B710-4BA60E61FE8E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DB246D37-1F6D-4190-B710-4BA60E61FE8E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DB246D37-1F6D-4190-B710-4BA60E61FE8E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DB246D37-1F6D-4190-B710-4BA60E61FE8E}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

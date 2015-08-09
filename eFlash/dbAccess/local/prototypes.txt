@@ -1,0 +1,234 @@
+selectLocalDB:
+
+    	/**
+	 *
+         *  A function to retrieve all the decks belonging to a user from the deck table in local database
+         * Pre: local user id
+         * Post: List of corresponding Decks
+         * STATUS = DONE!!!! 
+	 */
+        public static List<Deck> getDecks(int uid)
+
+
+	/**
+	 * A function to retrieve all local decks regardless of current user
+	 * Post: List of all decks stored locally
+	 * STATUS = DONE!!!!
+ 	 */
+	public static List<Deck> getDecksAll()
+
+
+
+        /**
+         *  A function to retrieve all the cards belonging to a deck from the card and cdrelation table in local database
+         * Pre: local deck id
+         * Post: List of corresponding Cards
+	 * STATUS = DONE!!!!
+         */
+        public static List<Card> getCards(int did)
+
+
+
+	/**
+        *  A function to retrieve all the objects belonging to a card from the objects table in local database
+        * Pre: local card id
+        * Post: List of corresponding objects
+	* STATUS = DONE!!!!
+        */
+        public static List<eObject> getObjects(int cid)
+
+
+	
+	/**
+	* Retrieve all objects belonging to a card from the object table in the local database
+	* Pre: local card id
+	* Post: List of corresponding viewer objects (no binary data)
+	*/
+	public static List<eObject> getViewerObjects(int cid)
+
+
+	
+	/**
+	* Verifies existence of user name and password in local database
+	* Pre: User Name and User Password
+	* Post: Returns uid if user and password are correct.  Otherwise -1
+	*/
+	public static int getAuthdUserID(string name, string pw)
+
+
+
+	/**
+	* 
+	* Post: Returns list of all users' names
+	*/
+	public static List<string> getProfileList()
+
+
+
+	/**
+	*	Returns password for input user name
+	*	(used to accompany "save_pw" option)
+	*	default return ""
+	*/
+ 	public static string getPW(string name)
+
+
+
+	/**
+	*	Returns string for enum {"", "save_pw", "autolog"}
+	*	based on saved login settings
+	*	Returns empty string as default
+	*/
+  	public static string getSettings(string name)
+
+
+
+	/**
+	*	Returns uid of owner of input deck
+	*	Returns -1 if failure
+	*
+	*/
+	public static int getOwnerID(int did)
+
+
+	/**
+	 *	Check wether a user has a network id.
+	 *	Pre: user ID (integer)
+	 * 	Post: network user id is return, otherwise -1
+ 	 */
+	public static getNetId(int uid)
+
+
+
+insertLocalDB:
+
+	/**
+         * A function to insert object to Objects table in the local database
+	 * STATUS = DONE!!!!
+         */
+        public static void insertToObjects(string[] values, string filePath)
+
+
+
+	/**
+         * A function to insert entry to Decks table in local database
+         * Pre: Array of strings in the order of did, cat, subcat, title, uid, nuid
+         * Post: Appropiate entry is created in Decks table in local database
+         * Return: current deck id or -1 for error
+	 * STATUS = DONE!!!!
+         */
+        public static int insertToDecks(string[] values)
+
+
+
+        /**
+	 * A function to insert entry to Cards table in local database
+       	 * Pre: Array of strings in the order of cid, tag, uid
+       	 * Post: Appropriate entry is inserted to Cards table of local database
+       	 * Return: Current card id or -1 for error
+	 * STATUS = DONE!!!!
+         */
+        public static int insertToCards(string[] values)
+
+
+
+        /**
+         * A function to insert entry to CDRelations table in local database
+         * Pre:  did, cid
+         * Post: Appropriate entry is inserted to CDRelations table in local database
+	 * STATUS = DONE!!!!
+         */
+        public static void insertToCDRelations(int did, int cid)
+
+
+
+	/**
+	 *	Insert user into user's table (name, pw)
+	 */
+        public static void insertToUser(string name, string pw)
+
+
+
+
+	/**
+	 *	Insert user into QuizDeckRelations table (qid, did)
+	 */
+        public static void insertToQDRelations(int qid, int did)
+
+
+	
+
+	/**
+	 *	Insert user into Statistics table (qid, uid, score)
+	 */
+        public static void insertToStatistics(int qid, int uid, int score)
+
+
+
+
+deleteLocalDB:        
+	
+	/**
+	 *	Remove user profile from user's table by uid(also deletes decks and cards and CDRelations and Objects and statistics and QDRelations)
+	 */
+	public static void deleteUsers(int uid)
+
+
+
+	/**
+	 *	Delete a Deck from a user (also deletes cards and objects and CDRelations)
+	 * STATUS = DONE!!!!
+	 */
+	public void deleteDeck(int uid, int did)
+
+
+	
+	/**
+	 *	Delete a card from a user (also deletes objects and CDRelations)
+	 * STATUS = DONE!!!!
+	 */
+	public void deleteCard(int uid, int cid)
+
+
+
+	/**
+	 *	Delete a Object from a card
+	 * STATUS = DONE!!!!
+	 */
+	public void deleteObject(int cid, int side, int x1, int x2, int y1, int y2)
+
+
+
+	/**
+	*	Delete a Statistics from a user (also delete QuizDeckRelation)
+	*/
+	public void deleteStatistics(int qid, int uid)
+
+
+
+updateLocalDB:
+
+        /**
+         * A function to update a user in local profile
+         */
+        public static void updateUsers(int uid, string name, string pw, string loginSetting, int nuid)
+
+	/**
+	* update a deck from a user
+	*/
+	public void updateDecks(int did, string type, string cat, string subcat, string title, int uid, int nuid)
+
+	/**
+	* update a card from a user
+	*/
+	public void updateCards(int cid, string tag, int uid)
+
+	/**
+	* update an object from a user
+	*/
+	public void updateObjects(int cid, int side, string type, int x1, int x2, int y1, int y2, string data)
+
+	/**
+	* update statistics from user
+	*/
+	public void updateStatistics(int qid, int uid, int score)

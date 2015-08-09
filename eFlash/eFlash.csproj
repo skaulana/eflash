@@ -1,0 +1,526 @@
+﻿<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>8.0.50727</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{94EF0E5C-3272-4649-B20B-2ADA443932CE}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>eFlash</RootNamespace>
+    <AssemblyName>eFlash</AssemblyName>
+    <ApplicationIcon>Resources\Logo-ef.ico</ApplicationIcon>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Microsoft.Office.Interop.Graph, Version=11.0.0.0, Culture=neutral, PublicKeyToken=71e9bce111e9429c">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\dependency\Microsoft.Office.Interop.Graph.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Office.Interop.PowerPoint, Version=11.0.0.0, Culture=neutral, PublicKeyToken=71e9bce111e9429c">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\dependency\Microsoft.Office.Interop.PowerPoint.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Vbe.Interop, Version=11.0.0.0, Culture=neutral, PublicKeyToken=71e9bce111e9429c">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\dependency\Microsoft.Vbe.Interop.dll</HintPath>
+    </Reference>
+    <Reference Include="MySql.Data, Version=1.0.7.30072, Culture=neutral, PublicKeyToken=c5687fc88969c44d, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\dependency\MySql.Data.dll</HintPath>
+    </Reference>
+    <Reference Include="Office, Version=11.0.0.0, Culture=neutral, PublicKeyToken=71e9bce111e9429c">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\dependency\Office.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.DirectoryServices" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Data\Card.cs" />
+    <Compile Include="Data\Deck.cs" />
+    <Compile Include="Data\eFile.cs" />
+    <Compile Include="Data\eObject.cs" />
+    <Compile Include="Data\netDeck.cs" />
+    <Compile Include="dbAccess\local\deleteLocalDB.cs" />
+    <Compile Include="dbAccess\local\insertLocalDB.cs" />
+    <Compile Include="dbAccess\local\localDB.cs" />
+    <Compile Include="dbAccess\remote\remoteDB.cs" />
+    <Compile Include="dbAccess\local\selectLocalDB.cs" />
+    <Compile Include="dbAccess\local\updateLocalDB.cs" />
+    <Compile Include="FileImporter\Import.cs" />
+    <Compile Include="GUI\About.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GUI\About.Designer.cs">
+      <DependentUpon>About.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GUI\Creator\alignmentSelector.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="GUI\Creator\alignmentSelector.Designer.cs">
+      <DependentUpon>alignmentSelector.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GUI\Creator\creatorCard.cs" />
+    <Compile Include="GUI\Creator\creatorObject.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="GUI\Creator\creatorObject.Designer.cs">
+      <DependentUpon>creatorObject.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GUI\Creator\deckPropertiesDialog.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GUI\Creator\deckPropertiesDialog.Designer.cs">
+      <DependentUpon>deckPropertiesDialog.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GUI\Creator\fileChooser.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="GUI\Creator\fileChooser.Designer.cs">
+      <DependentUpon>fileChooser.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GUI\Creator\flashcardTagsDialog.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GUI\Creator\flashcardTagsDialog.Designer.cs">
+      <DependentUpon>flashcardTagsDialog.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GUI\Creator\layoutEditor.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GUI\Creator\layoutEditor.Designer.cs">
+      <DependentUpon>layoutEditor.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GUI\Creator\playerControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="GUI\Creator\playerControl.Designer.cs">
+      <DependentUpon>playerControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GUI\Creator\templateSelector.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="GUI\Creator\templateSelector.Designer.cs">
+      <DependentUpon>templateSelector.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GUI\File\exportScreen.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GUI\File\exportScreen.Designer.cs">
+      <DependentUpon>exportScreen.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GUI\File\HelpForImportScreen.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GUI\File\HelpForImportScreen.Designer.cs">
+      <DependentUpon>HelpForImportScreen.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GUI\File\HelpForImportScreen2.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GUI\File\HelpForImportScreen2.Designer.cs">
+      <DependentUpon>HelpForImportScreen2.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GUI\File\importscreen.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GUI\File\importscreen.Designer.cs">
+      <DependentUpon>importscreen.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GUI\File\importscreen2.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GUI\File\importscreen2.Designer.cs">
+      <DependentUpon>importscreen2.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GUI\File\importscreen3.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GUI\File\importscreen3.Designer.cs">
+      <DependentUpon>importscreen3.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GUI\File\importscreen4.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GUI\File\importscreen4.Designer.cs">
+      <DependentUpon>importscreen4.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GUI\File\importscreen5.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GUI\File\importscreen5.Designer.cs">
+      <DependentUpon>importscreen5.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GUI\ListSet.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="GUI\ListSet.Designer.cs">
+      <DependentUpon>ListSet.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GUI\Loading.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GUI\Loading.Designer.cs">
+      <DependentUpon>Loading.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GUI\Network\DownloadBrowser.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GUI\Network\DownloadBrowser.Designer.cs">
+      <DependentUpon>DownloadBrowser.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GUI\Network\RankerBrowser.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GUI\Network\RankerBrowser.designer.cs">
+      <DependentUpon>RankerBrowser.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GUI\Network\UploadBrowser.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GUI\Network\UploadBrowser.Designer.cs">
+      <DependentUpon>UploadBrowser.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GUI\Templates\template.cs" />
+    <Compile Include="GUI\Templates\templateObject.cs" />
+    <Compile Include="GUI\ViewerAndQuizzer\Displayer.cs" />
+    <Compile Include="GUI\ViewerAndQuizzer\FillinTheBlank.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GUI\ViewerAndQuizzer\FillinTheBlank.designer.cs">
+      <DependentUpon>FillinTheBlank.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GUI\ViewerAndQuizzer\Form1.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GUI\ViewerAndQuizzer\Form1.designer.cs">
+      <DependentUpon>Form1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GUI\ViewerAndQuizzer\Form2.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GUI\ViewerAndQuizzer\Form2.designer.cs">
+      <DependentUpon>Form2.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GUI\ViewerAndQuizzer\HonestQuiz.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GUI\ViewerAndQuizzer\HonestQuiz.designer.cs">
+      <DependentUpon>HonestQuiz.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GUI\ViewerAndQuizzer\MC.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GUI\ViewerAndQuizzer\MC.designer.cs">
+      <DependentUpon>MC.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GUI\ViewerAndQuizzer\PlayButton.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="GUI\ViewerAndQuizzer\Player.cs" />
+    <Compile Include="GUI\ViewerAndQuizzer\VisualViewer.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GUI\ViewerAndQuizzer\VisualViewer.Designer.cs">
+      <DependentUpon>VisualViewer.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GUI\ViewerAndQuizzer\Quiz.cs" />
+    <Compile Include="Network\Util.cs" />
+    <Compile Include="File\Powerpoint.cs" />
+    <Compile Include="GUI\main.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GUI\main.Designer.cs">
+      <DependentUpon>main.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GUI\Network\welcome.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GUI\Network\welcome.Designer.cs">
+      <DependentUpon>welcome.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GUI\Profile\profile_selector.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GUI\Profile\profile_selector.Designer.cs">
+      <DependentUpon>profile_selector.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GUI\ViewerAndQuizzer\quizSetup.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GUI\ViewerAndQuizzer\quizSetup.Designer.cs">
+      <DependentUpon>quizSetup.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GUI\ViewerAndQuizzer\quizzer.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GUI\ViewerAndQuizzer\quizzer.Designer.cs">
+      <DependentUpon>quizzer.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GUI\ViewerAndQuizzer\viewerCollectionSetup.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GUI\ViewerAndQuizzer\viewerCollectionSetup.Designer.cs">
+      <DependentUpon>viewerCollectionSetup.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Network\Browser.cs" />
+    <Compile Include="Profile\ProfileManager.cs" />
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="GUI\About.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>About.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GUI\Creator\alignmentSelector.resx">
+      <DependentUpon>alignmentSelector.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GUI\Creator\creatorObject.resx">
+      <DependentUpon>creatorObject.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GUI\Creator\deckPropertiesDialog.resx">
+      <DependentUpon>deckPropertiesDialog.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GUI\Creator\fileChooser.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>fileChooser.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GUI\Creator\flashcardTagsDialog.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>flashcardTagsDialog.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GUI\Creator\layoutEditor.resx">
+      <DependentUpon>layoutEditor.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GUI\Creator\playerControl.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>playerControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GUI\Creator\templateSelector.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>templateSelector.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GUI\File\exportScreen.resx">
+      <DependentUpon>exportScreen.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GUI\File\HelpForImportScreen.resx">
+      <DependentUpon>HelpForImportScreen.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GUI\File\importscreen.resx">
+      <DependentUpon>importscreen.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GUI\File\importscreen2.resx">
+      <DependentUpon>importscreen2.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GUI\File\importscreen3.resx">
+      <DependentUpon>importscreen3.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GUI\File\importscreen4.resx">
+      <DependentUpon>importscreen4.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GUI\File\importscreen5.resx">
+      <DependentUpon>importscreen5.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GUI\ListSet.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>ListSet.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GUI\Loading.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>Loading.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GUI\main.resx">
+      <DependentUpon>main.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GUI\Network\DownloadBrowser.resx">
+      <DependentUpon>DownloadBrowser.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GUI\Network\RankerBrowser.resx">
+      <DependentUpon>RankerBrowser.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GUI\Network\UploadBrowser.resx">
+      <DependentUpon>UploadBrowser.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GUI\Network\welcome.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>welcome.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GUI\Profile\profile_selector.resx">
+      <SubType>Designer</SubType>
+      <DependentUpon>profile_selector.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GUI\ViewerAndQuizzer\FillinTheBlank.resx">
+      <DependentUpon>FillinTheBlank.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GUI\ViewerAndQuizzer\Form1.resx">
+      <DependentUpon>Form1.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GUI\ViewerAndQuizzer\Form2.resx">
+      <DependentUpon>Form2.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GUI\ViewerAndQuizzer\HonestQuiz.resx">
+      <DependentUpon>HonestQuiz.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GUI\ViewerAndQuizzer\MC.resx">
+      <DependentUpon>MC.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GUI\ViewerAndQuizzer\VisualViewer.resx">
+      <DependentUpon>VisualViewer.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <SubType>Designer</SubType>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\border.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\dot.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\square.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Logo-ef.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\eFlash_Utilities\eFlash_Utilities.csproj">
+      <Project>{DB246D37-1F6D-4190-B710-4BA60E61FE8E}</Project>
+      <Name>eFlash_Utilities</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\alignCenter.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\alignLeft.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\alignRight.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\eFlash_welcome.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\flip.JPG" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\arrow-left2.JPG" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\arrow-right2.JPG" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\TextFile1.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\test1.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\home.png" />
+    <None Include="Resources\download.png" />
+    <None Include="Resources\find.png" />
+    <None Include="Resources\cat_view.bmp" />
+    <None Include="Resources\alpha_view.bmp" />
+    <None Include="Resources\About.png" />
+    <Content Include="Resources\defaultImage.jpg" />
+    <Content Include="Resources\defaultImage2.jpg" />
+    <None Include="Resources\Import.png" />
+    <None Include="Resources\Import2.png" />
+    <Content Include="Resources\importwizard.JPG" />
+    <None Include="Resources\kview.png" />
+    <None Include="Resources\main.png" />
+    <None Include="Resources\Loading.png" />
+    <None Include="Resources\Menu-connect.png" />
+    <None Include="Resources\Menu-quiz.png" />
+    <None Include="Resources\Menu-view.png" />
+    <None Include="Resources\Menu-edit.png" />
+    <None Include="Resources\Menu-delete.png" />
+    <None Include="Resources\Menu-export.png" />
+    <None Include="Resources\Menu-import.png" />
+    <None Include="Resources\Menu-create.png" />
+    <None Include="Resources\Profile.png" />
+    <Content Include="Resources\quick_restart.png" />
+    <None Include="Resources\upload.png" />
+    <None Include="Resources\refresh.png" />
+    <None Include="Resources\welcome.png" />
+    <None Include="Resources\time_view.bmp" />
+    <None Include="Resources\Quiz-fill.png" />
+    <None Include="Resources\Quiz-honest.png" />
+    <None Include="Resources\Quiz-multi.png" />
+    <None Include="Resources\View-flip.png" />
+    <None Include="Resources\View-next.png" />
+    <None Include="Resources\View-prev.png" />
+    <None Include="Resources\View-last.png" />
+    <None Include="Resources\View-first.png" />
+    <Content Include="Resources\window_fullscreen.png" />
+    <Content Include="Resources\window_nofullscreen.png" />
+    <None Include="Resources\importwizard1.JPG" />
+  </ItemGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

@@ -1,0 +1,5 @@
+/**
+ * Given a username, a nuid is return
+ * Return: network user id (integer)
+ */
+int insertNewUser(string name)
