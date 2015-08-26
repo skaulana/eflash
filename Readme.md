@@ -5,7 +5,12 @@ eFlash was developed as a semester project for CS 169, a software engineering cl
 
 eFlash was built in Visual Studio 2005 using C# and .NET 2.0.
 
----
+![Main screenshot](/screenshots/main.png?raw=true "User library and main actions")
+![Editor screenshot](/screenshots/editor.png?raw=true "Creating a new deck")
+![Quiz screenshot](/screenshots/quiz.png?raw=true "Taking a quiz using a deck")
+![Network screenshot](/screenshots/network.png?raw=true "Sharing and downloading decks from other eFlash users")
+![Profile screenshot](/screenshots/profile.png?raw=true "Profile and login")
+
 *Copyright © 2006, eFlash*
 
 This program is free software; you can redistribute it and/or modify it under the terms of the GNU General Public License as published by the Free Software Foundation; either version 2 of the License, or (at your option) and later version.
